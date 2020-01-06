@@ -1,0 +1,139 @@
+// 字体
+$font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$title-bg: #9ddaff;  // 标题背景色
+$color: #343e5c; // 主题字颜色
+$normal-color: #1d94f7; // 正常色
+$error-color: #fe5339; // 错误颜色
+$tab-font-color: #7795b5; //tab正常字色
+$link-color: #0074ff; //链接字色
+$label-color: #d2d2d2; //label颜色
+$stroke-color: #006fe6; //描边色
+$th-bg-color: #D8EBFF; //表头背景色
+$th-color: #333; //表头字色
+$divider-bg: #e3e7ed; // 禁选色
+
+// 待取色
+$white: #fff; // 白色
+$purple: #982e76; // 紫色
+
+// 渐变色
+$gradient-blue-color: linear-gradient(90deg, #4481eb 0%, #04befe 100%); //蓝色渐变色
+
+// 混入样式
+
+// 阴影
+@mixin box-shadow($value...) {
+  -webkit-box-shadow: $value;
+  box-shadow: $value;
+}
+
+// 文字不换行，超出部分用省略号表示
+@mixin nowrap {
+  display: inline-block;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  vertical-align: 0;
+}
+
+// 清浮动
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+    *height: 0%;
+  }
+}
+
+// 输入框样式预设  正常
+@mixin input-normal {
+  height: 30px;
+  line-height: 30px;
+  padding-left: 10px;
+  background-color: #fff;
+  /*border: 1px solid $divider-bg;*/
+  border-radius: 5px;
+  color: #333;
+  @include input-focus;
+}
+
+// 输入框样式预设  获取焦点
+@mixin input-focus {
+  &:focus {
+    border-color: $normal-color;
+    outline: 0;
+    @include box-shadow(inset 0px 1px 2px 0px rgba(51, 158, 248, 0.35));
+  }
+}
+
+// 输入框样式预设  报错
+@mixin input-error {
+  border-color: $error-color;
+  @include box-shadow(inset 0px 1px 2px 0px rgba(254, 83, 57, 0.35));
+}
+
+// 输入框样式预设  禁止
+@mixin input-disabled {
+  border-color: $divider-bg;
+  background-color: $divider-bg;
+  color: #9a9a9a;
+  cursor: not-allowed;
+}
+
+// 表格样式预设
+@mixin tb-th {
+  height: 45px;
+  line-height: 1.2em;
+  background-color: $th-bg-color;
+  color: $th-color;
+  letter-spacing: 1px;
+  border-bottom: 0 transparent;
+  font-size: 14px;
+}
+
+@mixin tb-td {
+  height: 35px;
+  line-height: 1.2em;
+  color: #666;
+  border-bottom: 0 transparent;
+}
+
+
+//按钮样式预设
+@mixin button-default {
+  padding: 0 10px;
+  height: 30px;
+  line-height: 30px;
+  color: $link-color !important;
+  background: $link-color;
+  border-radius: 5px;
+  border: solid 1px $link-color !important;
+  cursor: pointer;
+  font-size: 14px;
+  letter-spacing: 1px;
+  outline: none;
+
+  &:hover {
+    @include box-shadow(0px 2px 5px 0px rgba(29, 148, 247, 0.25));
+    @include box-shadow(none);
+    outline: none;
+  }
+
+  &:active {
+    @include box-shadow(none);
+    background: $link-color !important;
+    color: #fff !important;
+    opacity: 0.9;
+    outline: none;
+  }
+}
+
+// 禁选按钮
+@mixin button-disbaled {
+  background-color: $divider-bg;
+  border: 0px transparent;
+  opacity: 0.9;
+}
