@@ -19,7 +19,11 @@ module.exports = {
         historyApiFallback: true,
         hot: true,
         inline: true,
+        host: '0.0.0.0',
+        port:'8089',
+        https:false,
         stats: { colors: true },
+        // 代理
         proxy: {
             '/api/': {
                 // 目标服务器地址
@@ -34,3 +38,4 @@ module.exports = {
         }
     }
 }
+

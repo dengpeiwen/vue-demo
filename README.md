@@ -1,21 +1,21 @@
 # hello-world
 
-## Project setup
+## 拉取依赖包
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### 编译-开发环境
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+### 编译生产环境
 ```
 npm run build
 ```
 
-### Lints and fixes files
+### 检测环境
 ```
 npm run lint
 ```
