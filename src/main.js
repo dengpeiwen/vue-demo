@@ -6,6 +6,8 @@ import router from './router'
 import store from './stores'
 // 引入 处理后的axios
 import axios from './utils/axios'
+// 引入公共过滤器
+import * as filters from './utils/filters'
 
 //引入公共样式
 import './styles/common.scss'
@@ -15,7 +17,15 @@ import ViewUI from 'view-design'
 
 Vue.use(ViewUI)
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
+
+// 将过滤器挂载在vue上
+Vue.prototype.$filters = filters;
+
+// 全局注入过滤器
+Object.keys(filters).forEach(key => {
+  Vue.filter(key, filters[key])
+});
 
 // http response 服务器相应拦截，拦截401，403错误
 axios.interceptors.response.use(
